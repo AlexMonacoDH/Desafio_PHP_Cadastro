@@ -61,7 +61,10 @@
 		$produtos = json_decode($json,true);
 		return $produtos;
 	}
-	
+	function removeJson(){
+		$produtos = getProdutos();
+		
+	}
 	// Função que adiciona produto ao json
 	function addProduto($name,$foto,$description,$price){
 
@@ -81,8 +84,8 @@
 
 		// Salvar a string json no arquivo
 		file_put_contents(PHOTO,$json); 
-    }
-    
+	}
+	
     // Função para verificar se o login é válido
 	function logar($email,$senha){
 		

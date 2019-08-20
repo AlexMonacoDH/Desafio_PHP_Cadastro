@@ -44,7 +44,7 @@
     
     <div class="container">
 	
-        <table class="table">
+        <table class="table" id="table1">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -52,6 +52,7 @@
                     <th scope="col">Descrição</th>
                     <th scope="col">Foto</th>
                     <th scope="col">Preço</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -62,8 +63,10 @@
                     <td><?= $p['description1'] ?></td>
                     <td><img src="<?= $p['foto1'];?>" alt="<?= $p['productName1']; ?>" style="width:32px;border-radius:16px"></td>
                     <td><?= $p['price1'] ?></td>
+                    <td><button type="button" class="btn btn-danger" onclick="removeProduct(this), removeJson()">Remover</button></td>
                 </tr>
             <?php endforeach ?>
+            
             </tbody>
         </table>
 
@@ -74,6 +77,7 @@
         </form>
     </div>
 
+    <script src="./inc/functions.js"></script>
     <!-- código para o Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
