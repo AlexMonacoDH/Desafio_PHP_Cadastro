@@ -1,32 +1,25 @@
 <?php
 
     include('./inc/functions1.php');
-
+    
     session_start();
     if(!$_SESSION['logado']){
         // redirecionar para login
         header('location: login.php');
     }
-/*
-    if($_POST){
-        // destruir a session
-        session_destroy();
-        // redirecionar para login
-        header('location: login.php');
-    }*/
 
-    $produtos = getProdutos();
+    $usuarios = getUsuarios();
 
     //logout
     if(isset($_POST['logout'])){
         //destruir a session
         session_destroy();
         //redirecionar para login
-        header('location: login.php');
+        header('location: cadastro.php');
     }
     //remove product from json file
     elseif($_POST){
-        removeJson();
+        removeJsonUsuario();
     }
     
 ?>
@@ -58,30 +51,30 @@
     
     <div class="container">
     
-        <h1>Product Table</h1>
+        <h1>Users Table</h1>
         <table class="table" id="table1">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Description</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Password</th>
                     <th scope="col">Picture</th>
-                    <th scope="col">Price</th>
                     <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
-            <?php foreach($produtos as $i => $p): ?>
+            <?php foreach($usuarios as $i => $p): ?>
                 <tr>
                     <th scope="row"><?= $i+1 ?></th>
-                    <td><?= $p['productName1'] ?></td>
-                    <td><?= $p['description1'] ?></td>
-                    <td><img src="<?= $p['foto1'];?>" alt="<?= $p['productName1']; ?>" style="max-width:10vw;max-height:10vh"></td>
-                    <td><?= 'R$ '.$p['price1'] ?></td>
+                    <td><?= $p['nome'] ?></td>
+                    <td><?= $p['email'] ?></td>
+                    <td><?= $p['nome']?></td>
+                    <td><img src="<?= $p['foto'];?>" alt="<?= $p['nome']; ?>" style="max-width:10vw;max-height:10vh"></td>
                     <td>
                     <form method="post">
                         <!-- para o form funcionar é necessário um valor de input  -->
-                        <input type="hidden" name="<?= $i ?>" value="<?= $p['productName1'] ?>">
+                        <input type="hidden" name="<?= $i ?>" value="<?= $p['nome'] ?>">
                         <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
                     </td>

@@ -27,3 +27,11 @@ header li {
 a {
     color: red;
 }
+
+h1 {
+    text-align: center;
+}
+
+#table1 {
+    border-bottom: 1px solid black;
+}

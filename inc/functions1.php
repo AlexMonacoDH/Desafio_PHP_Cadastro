@@ -24,6 +24,22 @@
 		}
 
 		return $erros;
+	}
+	function errosNoPost1(){
+		$erros1 =[];
+		if(!isset($_POST['productName1']) || $_POST['productName1']==''){
+			$erros1[] = 'errNome1';
+		}
+
+		if(!isset($_POST['description1']) || $_POST['description1']==''){
+			$erros1[] = 'errDesc';
+		}
+
+		if(!isset($_POST['price1']) || $_POST['price1']==''){
+			$erros1[] = 'errPrice';
+		}
+
+		return $erros1;
     }
     
     // Carregando o conteúdo do arquivo (string json) para uma variável
@@ -61,9 +77,38 @@
 		$produtos = json_decode($json,true);
 		return $produtos;
 	}
+	
 	function removeJson(){
+
+		// Carregando os produtos
 		$produtos = getProdutos();
 		
+		$value = $_POST;
+		$v = array_key_last($value);
+		array_splice($produtos,$v,1);
+		header('location: index.php');
+		
+		// Transformando o array produtos numa string json
+		$json = json_encode($produtos);
+
+		// Salvar a string json no arquivo
+		file_put_contents(PHOTO,$json); 
+	}
+	function removeJsonUsuario(){
+
+		// Carregando os usuários
+		$usuarios = getUsuarios();
+		
+		$value = $_POST;
+		$v = array_key_last($value);
+		array_splice($usuarios,$v,1);
+		header('location: usuarios.php');
+		
+		// Transformando o array produtos numa string json
+		$json = json_encode($usuarios);
+
+		// Salvar a string json no arquivo
+		file_put_contents(ARQUIVO,$json); 
 	}
 	// Função que adiciona produto ao json
 	function addProduto($name,$foto,$description,$price){

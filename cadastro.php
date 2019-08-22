@@ -2,7 +2,7 @@
 
 	// Incluindo arquivo de funções
 	include('./inc/functions1.php');
-
+	
 	if($_POST){
 		
 		// Verificando o post
@@ -16,7 +16,8 @@
 
 				// Salvando o nome do arquivo definitivo
 				$arquivo_def = './fotos/'.$_FILES['foto']['name'];
-			} else {
+			}
+			else {
 				$erros[] = 'errUpload';
 			}
 		}
@@ -25,7 +26,6 @@
 
 			// Adicionar usuario ao arquivo json
 			addusuario($_POST['nome'],$_POST['email'],$_POST['senha'], $arquivo_def);
-		
 		}
 
 	} else {
@@ -33,7 +33,6 @@
 		// Garantindo que um vetor de erros exista
 		// ainda que vazio quando não houver POST
 		$erros = [];
-
 	}
 
 	// errNome será true se o campo nome for inválido e false se o campo estiver ok. 
@@ -65,10 +64,11 @@
     <header>
         <div class="row">
             <div class="col">
-                <li><a href="./index.php">Home</a></li>
+                <li><a href="./index.php">Produtos</a></li>
                 <li><a href="./caProduto.php">Cadastrar Produtos</a></li>
             </div>
             <div class="col">
+				<li><a href="./usuarios.php">Usuários</a></li>
                 <li><a href="./cadastro.php">Cadastro</a></li>
                 <li><a href="./login.php">Login</a></li>
             </div>
@@ -77,10 +77,10 @@
 	<div class="container">
 		<div class="row">
 			<ul class="col-sm-12 col-md-4 list-group">
-				<!-- LISTA DOS usuarioS CADASTRADOS -->
+				<!-- lista dos usuários cadastrados -->
 				<?php foreach($usuarios as $c): ?>
 				<li class="list-group-item">
-					<img src="<?= $c['foto'];?>" alt="<?= $c['nome']; ?>" style="width:32px;border-radius:16px">
+					<img src="<?= $c['foto'];?>" alt="<?= $c['nome']; ?>" style="width:32px;border-radius:16px;margin-bottom:3%">
 					<span><?= $c['nome'];  ?></span> : 
 					<span><?= $c['email'];  ?></span>
 				</li>

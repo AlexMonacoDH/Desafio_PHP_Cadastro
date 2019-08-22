@@ -39,10 +39,11 @@
 <header>
     <div class="row">
         <div class="col">
-            <li><a href="./index.php">Home</a></li>
+            <li><a href="./index.php">Produtos</a></li>
             <li><a href="./caProduto.php">Cadastrar Produtos</a></li>
         </div>
         <div class="col">
+            <li><a href="./usuarios.php">Usuários</a></li>
             <li><a href="./cadastro.php">Cadastro</a></li>
             <li><a href="./login.php">Login</a></li>
         </div>
