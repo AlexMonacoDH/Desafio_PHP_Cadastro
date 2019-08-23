@@ -27,18 +27,19 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login!!!</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">	
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <header>
     <div class="row">
         <div class="col">
+            <li><a href="./index.html">Home</a></li>
             <li><a href="./index.php">Produtos</a></li>
             <li><a href="./caProduto.php">Cadastrar Produtos</a></li>
         </div>
